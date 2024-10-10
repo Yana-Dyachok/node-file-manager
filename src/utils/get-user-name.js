@@ -1,5 +1,4 @@
-const INITIAL_USERNAME = "User";
-
+import { INITIAL_USERNAME } from "./const.js";
 export const getUserName = () => {
   const usernameFromEnv = process.env.npm_config_username;
 
