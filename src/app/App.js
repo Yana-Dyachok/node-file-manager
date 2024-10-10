@@ -1,14 +1,9 @@
-import { getUsernameFromArgs } from "../components/get-user-name.js";
+import { welcomeMessage } from '../components/general.js';
+import { getDirectoryPath } from '../utils/get-directory-path.js';
 
 export class App {
-  name;
-
-  constructor() {
-    this.name = getUsernameFromArgs();
-    this.greet(); 
-  }
-
-  greet() {
-    console.log(`Welcome to the File Manager, ${this.name}!`);
-  }
+    start() {
+        welcomeMessage();
+        getDirectoryPath();
+    }
 }

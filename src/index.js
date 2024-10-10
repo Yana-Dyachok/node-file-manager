@@ -1,3 +1,4 @@
 import { App } from "./app/App.js";
 
-new App();
+const app = new App();
+app.start();

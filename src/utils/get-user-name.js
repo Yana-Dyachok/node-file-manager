@@ -1,6 +1,6 @@
 const INITIAL_USERNAME = "User";
 
-export const getUsernameFromArgs = () => {
+export const getUserName = () => {
   const usernameFromEnv = process.env.npm_config_username;
 
   if (usernameFromEnv) {
