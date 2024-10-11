@@ -8,6 +8,7 @@ import { deleteFile } from '../components/basic-operations/delete-file.js';
 import { renameFile } from '../components/basic-operations/rename-file.js';
 import { copyFile } from '../components/basic-operations/copy-file.js';
 import { moveFile } from '../components/basic-operations/move-file.js';
+import { calculateHash } from '../components/calculate-hash/calculate-hash.js';
 
 export const commandLine = async (rl, line) => {
     const parts = line
@@ -47,6 +48,9 @@ export const commandLine = async (rl, line) => {
             break;
         case 'mv':
             await moveFile(args);
+            break;
+        case 'hash':
+            await calculateHash(args);
             break;
         case '.exit':
             rl.close();
