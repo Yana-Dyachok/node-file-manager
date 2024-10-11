@@ -1,4 +1,4 @@
-import path from "node:path";
+import {extname} from "node:path";
 
 export const isValidFileFormat = (fileName) => {
   const allowedExtensions = [
@@ -12,6 +12,6 @@ export const isValidFileFormat = (fileName) => {
     '.html', '.css', '.js', '.ts', '.jsx', '.tsx'
   ];
 
-  const extension = path.extname(fileName).toLowerCase();
+  const extension = extname(fileName).toLowerCase();
   return allowedExtensions.includes(extension);
 };

@@ -1,8 +1,8 @@
 import {writeFile} from "node:fs/promises";
-import path from "node:path";
+import {resolve} from "node:path";
 
 export const addFile = async ([...fileName]) => {
-  const pathFile = path.resolve(`${process.cwd()}/${fileName.join(" ")}`);
+  const pathFile = resolve(`${process.cwd()}/${fileName.join(" ")}`);
   await writeFile(pathFile, "", { flag: "wx+" });
 };
 
