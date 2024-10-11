@@ -4,6 +4,7 @@ import { printAllFiles } from '../components/print-all-files.js';
 import { addFile } from '../components/basic-operations/add-file.js';
 import { isValidFileFormat } from './file-format-validation.js';
 import { readContentFile } from '../components/basic-operations/read-file.js';
+import { deleteFile } from '../components/basic-operations/delete-file.js';
 
 export const commandLine = async (rl, line) => {
     const parts = line.trim().split(' ');
@@ -29,6 +30,9 @@ export const commandLine = async (rl, line) => {
             break;
         case 'cat':
             await readContentFile(args);
+            break;
+        case 'rm':
+            await deleteFile(args);
             break;
         case '.exit':
             rl.close();
