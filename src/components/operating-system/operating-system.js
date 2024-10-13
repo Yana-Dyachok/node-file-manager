@@ -4,7 +4,7 @@ import { getCPUInfo } from '../../utils/get-cpu-info.js';
 export const operatingSystemInfo = (operation) => {
     switch (operation) {
         case '--EOL': {
-            console.log(JSON.stringify(os.EOL));
+            console.log(`System EOL: ${JSON.stringify(os.EOL)}`);
             break;
         }
 
@@ -14,18 +14,18 @@ export const operatingSystemInfo = (operation) => {
         }
 
         case '--homedir': {
-            console.log(os.homedir());
+            console.log(`Home directory: ${os.homedir()}`);
             break;
         }
 
         case '--username': {
             const { username } = os.userInfo();
-            console.log(username);
+            console.log(`System user name: ${username}`);
             break;
         }
 
         case '--architecture': {
-            console.log(os.arch());
+            console.log(`CPU architecture: ${os.arch()}`);
             break;
         }
 
