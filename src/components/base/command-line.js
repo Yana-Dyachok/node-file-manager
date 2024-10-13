@@ -1,4 +1,4 @@
-import { ERROR_INPUT } from '../../utils/const.js';
+import { ERROR_INPUT, OS } from '../../utils/const.js';
 import { goToFolder } from '../../utils/go-to-folder.js';
 import { printAllFiles } from './print-all-files.js';
 import { addFile } from '../basic-operations/add-file.js';
@@ -13,6 +13,8 @@ import {
     compressFile,
     decompressFile,
 } from '../compress-and-decompress/compress-and-decompress.js';
+import { operatingSystemInfo } from '../operating-system/operating-system.js';
+
 export const commandLine = async (rl, line) => {
     const parts = line
         .trim()
@@ -65,6 +67,15 @@ export const commandLine = async (rl, line) => {
             }
             await decompressFile(args);
             break;
+        case 'os': {
+            if (args.length !== 1 || !OS.includes(args[0])) {
+                console.error(ERROR_INPUT);
+                break;
+            }
+
+            operatingSystemInfo(args[0]);
+            break;
+        }
         case '.exit':
             rl.close();
             break;
