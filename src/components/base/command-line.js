@@ -1,18 +1,18 @@
-import { ERROR_INPUT } from './const.js';
-import { goToFolder } from '../components/go-to-folder.js';
-import { printAllFiles } from '../components/print-all-files.js';
-import { addFile } from '../components/basic-operations/add-file.js';
-import { isValidFileFormat } from './file-format-validation.js';
-import { readContentFile } from '../components/basic-operations/read-file.js';
-import { deleteFile } from '../components/basic-operations/delete-file.js';
-import { renameFile } from '../components/basic-operations/rename-file.js';
-import { copyFile } from '../components/basic-operations/copy-file.js';
-import { moveFile } from '../components/basic-operations/move-file.js';
-import { calculateHash } from '../components/calculate-hash/calculate-hash.js';
+import { ERROR_INPUT } from '../../utils/const.js';
+import { goToFolder } from '../../utils/go-to-folder.js';
+import { printAllFiles } from './print-all-files.js';
+import { addFile } from '../basic-operations/add-file.js';
+import { isValidFileFormat } from '../../utils/file-format-validation.js';
+import { readContentFile } from '../basic-operations/read-file.js';
+import { deleteFile } from '../basic-operations/delete-file.js';
+import { renameFile } from '../basic-operations/rename-file.js';
+import { copyFile } from '../basic-operations/copy-file.js';
+import { moveFile } from '../basic-operations/move-file.js';
+import { calculateHash } from '../calculate-hash/calculate-hash.js';
 import {
     compressFile,
     decompressFile,
-} from '../components/compress-and-decompress/compress-and-decompress.js';
+} from '../compress-and-decompress/compress-and-decompress.js';
 export const commandLine = async (rl, line) => {
     const parts = line
         .trim()
