@@ -9,7 +9,10 @@ import { renameFile } from '../components/basic-operations/rename-file.js';
 import { copyFile } from '../components/basic-operations/copy-file.js';
 import { moveFile } from '../components/basic-operations/move-file.js';
 import { calculateHash } from '../components/calculate-hash/calculate-hash.js';
-
+import {
+    compressFile,
+    decompressFile,
+} from '../components/compress-and-decompress/compress-and-decompress.js';
 export const commandLine = async (rl, line) => {
     const parts = line
         .trim()
@@ -51,6 +54,16 @@ export const commandLine = async (rl, line) => {
             break;
         case 'hash':
             await calculateHash(args);
+            break;
+        case 'compress':
+            await compressFile(args);
+            break;
+        case 'decompress':
+            if (!args[0].includes('.br')) {
+                console.error(ERROR_INPUT);
+                break;
+            }
+            await decompressFile(args);
             break;
         case '.exit':
             rl.close();
