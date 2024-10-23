@@ -1,14 +1,18 @@
-import {EOL, cpus} from 'node:os';
+import { EOL, cpus } from 'node:os';
 
-export const getCPUInfo = () => {
-    const cpusInfo = cpus();
-    const totalCores = `Total CPU Cores: ${cpusInfo.length}${EOL}`;
-    
-    const cpuDetails =  cpusInfo.map((cpu, index) => {
-      const model = cpu.model.trim();
-      const clockRate = (cpu.speed / 1000).toFixed(1);
-      return `Core ${index + 1}:\n  Model: ${model}\n  Clock Rate: ${clockRate} GHz${EOL}`;
-    }).join(EOL);
-    
-    return `${totalCores}${cpuDetails}`;
-  };
+const formatCpuData = (cpuInfo) => {
+    return cpuInfo.map((info) => ({
+        'CPU model': info.model,
+        'CPU clock rate, GHz': `${(info.speed / 1000).toFixed(2)} GHz`,
+    }));
+};
+
+export const getCPUInfo = async () => {
+    const cpuInfo = cpus();
+    const formattedCpuData = formatCpuData(cpuInfo);
+
+    process.stdout.write(
+        `Total CPU Cores: \x1b[35m${cpuInfo.length}\x1b[0m${EOL}`
+    );
+    console.table(formattedCpuData);
+};

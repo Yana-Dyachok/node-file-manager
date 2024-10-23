@@ -9,7 +9,7 @@ export const operatingSystemInfo = (operation) => {
         }
 
         case '--cpus': {
-            console.log(getCPUInfo());
+            getCPUInfo();
             break;
         }
 

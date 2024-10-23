@@ -87,7 +87,7 @@ export const commandLine = async (rl, line) => {
             await moveFile(args);
             break;
         case 'hash':
-            if (!isValidFileFormat(args.join(' ')) || args.length !== 1) {
+            if (args.length !== 1) {
                 console.error(ERROR_INPUT);
                 break;
             }
